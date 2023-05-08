@@ -1,5 +1,4 @@
 const express = require('express');
-const session = require('express-session');
 const router = express.Router();
 const Teacher = require('../models/userModel');
 const Department = require('../models/departmentModel');
@@ -7,11 +6,16 @@ const Degree = require('../models/degreeModel');
 const Course = require('../models/courseModel');
 const AllocateCourse = require('../models/allocationModel');
 const Attendance = require('../models/attendanceModel');
-// Session middleware
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
+const sessionStore = MongoStore.create({
+  mongoUrl: process.env.MONGO_URL,
+  collectionName: 'sessions'
+});
 router.use(session({
-  secret: 'your secret key',
-  resave: false,
-  saveUninitialized: false
+  secret: 'foo',
+  store: sessionStore
 }));
 // Home route
 router.get("/", async (req, res) => {

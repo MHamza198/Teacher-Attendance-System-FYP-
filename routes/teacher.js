@@ -7,12 +7,16 @@ const Course = require('../models/courseModel');
 const AllocateCourse = require('../models/allocationModel');
 const Attendance = require('../models/attendanceModel');
 
-// Session middleware
+const MongoStore = require('connect-mongo');
+
+const sessionStore = MongoStore.create({
+  mongoUrl: process.env.MONGO_URL,
+  collectionName: 'sessions'
+});
 router.use(session({
-    secret: 'your secret key',
-    resave: false,
-    saveUninitialized: false
-  }));
+  secret: 'foo',
+  store: sessionStore
+}));
 
       // Add middleware to make session variable available in views
 router.use((req, res, next) => {
