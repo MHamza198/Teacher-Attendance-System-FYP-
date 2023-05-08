@@ -1,0 +1,44 @@
+<h1>Add Degree</h1>
+<form action="/admin/add-degree" method="POST">
+  <div class="form-group">
+    <label for="department">Department:</label>
+    <select class="form-control" id="department" name="department" required>
+      <option value="">Select Department</option>
+      {{#each departments}}
+        <option value="{{this._id}}">{{this.department_name}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="degree">Degree:</label>
+    <input type="text" class="form-control" id="degree" name="degree_name" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Degree</button>
+</form>
+
+<h2>Degrees List</h2>
+<table class="table table-striped table-bordered mt-4">
+  <thead>
+    <tr>
+      <th>Department</th>
+      <th>Degree</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+{{#each degrees}}
+  <tr>
+    <td>{{this.department.department_name}}</td>
+    <td>{{this.degree_name}}</td>
+    <td>
+      <form action="/admin/remove-degree" method="POST">
+        <input type="hidden" name="degreeId" value="{{this._id}}">
+        <button type="submit" class="btn btn-danger">Remove</button>
+      </form>
+    </td>
+  </tr>
+{{/each}}
+
+
+  </tbody>
+</table>

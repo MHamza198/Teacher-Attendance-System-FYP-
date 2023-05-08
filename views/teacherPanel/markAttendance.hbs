@@ -1,0 +1,60 @@
+<div class="container" style="max-width: 500rem;">
+  <div class="row justify-content-center">
+    <div class="col-md-8"><br>
+      {{#if message}}
+      <div class="alert alert-success" role="alert">
+        {{message}}
+      </div>
+      {{/if}}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Degree</th>
+            <th>Semester</th>
+            <th>Course Name</th>
+            <th>Course Code</th>
+            <th>Date</th>
+            <th>Day</th>
+            <th>Attendance</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each allocatedCourses}}
+            <form method="POST" action="/teacher/markAttendance">
+              <tr>
+                <td>{{this.degree_name.degree_name}}</td>
+                <td>{{this.semester}}th</td>
+                <td>{{this.course_name.course_name}}</td>
+                <td>{{this.course_code.course_code}}</td>
+                <input type="hidden" name="courseId" value="{{this._id}}">
+                <td><input type="date" class="form-control" name="date" required></td>
+                <td>
+                  <select class="form-select" name="day" required>
+                    <option value="" selected disabled>Choose a day</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                    <option value="sunday">Sunday</option>
+                  </select>
+                </td>
+                <td>
+                  <div class="btn-group" role="group">
+                    <button type="submit" class="btn btn-success" name="attendance" value="Present" onclick="return confirm('Are you sure you want to mark this {{this.course_code.course_code}} present?')">P</button>
+                    <button type="submit" class="btn btn-danger" name="attendance" value="Absent" onclick="return confirm('Are you sure you want to mark this {{this.course_code.course_code}} absent?')">A</button>
+                  </div>
+                </td>
+                <input type="hidden" name="course_name" value="{{this.course_name.course_name}}">
+                <input type="hidden" name="course_code" value="{{this.course_code.course_code}}">
+                <input type="hidden" name="degree_name" value="{{this.degree_name.degree_name}}">
+                <input type="hidden" name="semester" value="{{this.semester}}">
+              </tr>
+            </form>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

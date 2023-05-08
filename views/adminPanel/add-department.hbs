@@ -1,0 +1,30 @@
+<h1>Create Department</h1>
+<form action="/admin/add-department" method="POST">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    <input type="text" class="form-control" id="name" name="department_name" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>
+<table class="table table-striped table-bordered mt-4 text-center">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each departments}}
+    <tr>
+      <td>{{this.department_name}}</td>
+      <td>
+        <form action="/admin/remove-department" method="POST">
+          <input type="hidden" name="departmentId" value="{{this._id}}">
+          <button type="submit" class="btn btn-danger">Remove</button>
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+

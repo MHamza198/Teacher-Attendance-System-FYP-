@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Select Teacher</h1>
+      <form method="POST" action="/admin/teacher-courses">
+        <div class="mb-3">
+          <label for="teacher-select" class="form-label">Teacher:</label>
+          <select class="form-select" id="teacher-select" name="teacherId">
+            <option value="">Select Teacher</option>
+            {{#each teachers}}
+            <option value="{{this._id}}">{{this.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">View Courses</button>
+      </form>
+    </div>
+  </div>
+</div>

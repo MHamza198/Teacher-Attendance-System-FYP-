@@ -1,0 +1,45 @@
+
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <p><i class='bx bx-map'></i>Chak 198 Rb Munianwala, Faisalabad</p>
+        <p><i class='bx bx-envelope'></i><a href="mailto:info@teacherattendance.com">info@teacherattendance.com</a></p>
+        <p><i class='bx bx-phone'></i><a href="tel:555-555-5555">92-3046788768</a></p>
+      </div>
+      <div class="col-md-4">
+        <h5>Follow Us</h5>
+        <ul class="list-unstyled d-flex">
+          <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
+          <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
+          <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
+          <li><a href="#"><i class='bx bxl-youtube'></i></a></li>
+        </ul>
+      </div>
+      {{#if teacherName}}
+      <div class="col-md-4">
+        <h5>Thank You! <span class="teacher-name">{{teacherName}}</span></h5>
+
+        <p>Thank you for choosing our Teacher Attendance System. With our system, you can easily mark and check the attendance record. We hope to provide you with the best experience possible.</p>
+      </div>
+{{else}}
+      <div class="col-md-4">
+        <h5>Subscribe</h5>
+        <form>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Enter your email">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </div>
+        </form>
+      </div>
+{{/if}}
+    </div>
+    <hr>
+    <div class="text-center">
+      <p>&copy; 2023 Teacher Attendance System. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

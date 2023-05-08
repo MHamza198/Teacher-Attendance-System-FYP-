@@ -1,0 +1,86 @@
+
+<h2>Allocate Course to Teacher</h2>
+
+<form action="/admin/allocate-course" method="POST">
+  <div class="form-group">
+    <label for="teacher">Teacher:</label>
+    <select name="teacher" id="teacher" class="form-control">
+       <option value="">Select Teacher</option>
+      {{#each teachers}}
+      <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="degree">Degree:</label>
+    <select name="degree_name" id="degree" class="form-control">
+       <option value="">Select Degree</option>
+      {{#each degrees}}
+      <option value="{{this._id}}">{{this.degree_name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+ <div class="form-group">
+  <label for="course_code">Course Code:</label>
+  <select name="course_code" id="course_code" class="form-control">
+     <option value="">Select Course Code</option>
+    {{#each courses}}
+    <option value="{{this._id}}">{{this.course_code}}</option>
+    {{/each}}
+  </select>
+</div>
+<div class="form-group">
+  <label for="course_name">Course Name:</label>
+  <select name="course_name" id="course_name" class="form-control">
+     <option value="">Select Course Name</option>
+    {{#each courses}}
+    <option value="{{this._id}}">{{this.course_name}}</option>
+    {{/each}}
+  </select>
+</div>
+
+  <div class="form-group">
+    <label for="semester">Semester:</label>
+    <select name="semester" id="semester" class="form-control">
+      <option value="1">1st Semester</option>
+      <option value="2">2nd Semester</option>
+      <option value="3">3rd Semester</option>
+      <option value="4">4th Semester</option>
+      <option value="5">5th Semester</option>
+      <option value="6">6th Semester</option>
+      <option value="7">7th Semester</option>
+      <option value="8">8th Semester</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Allocate Course</button>
+</form>
+
+<h2>Allocated Courses</h2>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Teacher</th>
+        <th>Degree</th>
+        <th>Course Code</th>
+        <th>Course Name</th>
+        <th>Semester</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each allocations}}
+      <tr>
+        <td>{{this.teacher.name}}</td>
+        <td>{{this.degree_name.degree_name}}</td>
+        <td>{{this.course_code.course_code}}</td>
+        <td>{{this.course_name.course_name}}</td>
+        <td>{{this.semester}}th</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

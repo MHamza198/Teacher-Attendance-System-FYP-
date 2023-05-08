@@ -1,0 +1,68 @@
+<div class="container" style="max-width: 500rem;">
+  <h1>{{teacher.name}}'s Record</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form method="POST" action="/admin/attendanceRecords">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label for="course-code" class="form-label">Course Code</label>
+            <select class="form-select" id="course-code" name="courseCode">
+              <option value="">All Courses</option>
+              {{#each allocatedCourses}}
+                <option value="{{this.course_code.course_code}}">{{this.course_code.course_code}} - {{this.course_name.course_name}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="start-date" class="form-label">Start Date</label>
+            <input type="date" class="form-control" id="start-date" name="startDate" required>
+          </div>
+          <div class="col-md-4">
+            <label for="end-date" class="form-label">End Date</label>
+            <input type="date" class="form-control" id="end-date" name="endDate" required>
+          </div>
+        </div>
+     <div class="mt-3">
+    <button type="submit" class="btn btn-primary">Filter</button>
+    {{#if attendanceRecords.length}}
+     <a href="/teacher/attendanceRecords/report?courseCode={{selectedCourseCode}}&startDate={{startDate}}&endDate={{endDate}}" class="btn btn-success">Generate Report</a>
+
+    {{/if}}
+  </div>
+
+
+      {{#if attendanceRecords.length}}
+        <table class="table mt-4">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Day</th>
+              <th>Degree</th>
+              <th>Semester</th>
+              <th>Course Name</th>
+              <th>Course Code</th>
+              <th>Attendance</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each attendanceRecords}}
+              <tr>
+                <td>{{this.date}}</td>
+                <td>{{this.day}}</td>
+                <td>{{this.degree_name}}</td>
+                <td>{{this.semester}}th</td>
+                <td>{{this.course_name}}</td>
+                <td>{{this.course_code}}</td>
+                <td>{{this.attendance}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      {{else}}
+        <p>No attendance records found for the selected course and dates.</p>
+      {{/if}}
+    </div>
+  </div>
+</div>
+
+

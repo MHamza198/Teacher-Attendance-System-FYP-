@@ -1,0 +1,169 @@
+
+.hero-section {
+    background-color: #f8f9fa;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  
+  .hero-heading {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .hero-text {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  
+  .hero-btn {
+    font-size: 18px;
+    padding: 15px 40px;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .hero-btn:hover {
+    transform: translateY(-5px);
+  }
+  .navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .navbar-brand img {
+    margin-right: 0.5rem;
+  }
+  
+  .navbar-brand .brand-text {
+    font-size: 1.25rem;
+  }
+  
+  .nav-link {
+    color: #333;
+    font-weight: bold;
+    margin-left: 1rem;
+  }
+  
+  .nav-link:hover {
+    color: #007bff;
+  }
+  
+  .nav-link.active {
+    color: #007bff;
+  }
+  
+  .navbar-toggler {
+    border: none;
+    background-color: transparent;
+  }
+  
+  .navbar-toggler:focus {
+    outline: none;
+  }
+  
+  @media (max-width: 767.98px) {
+    .navbar-brand {
+      font-size: 1.25rem;
+    }
+  }
+  
+  footer {
+    background-color: #212529;
+    color: #fff;
+    padding: 40px 0;
+  }
+  
+  footer h5 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  footer p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+  
+  footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  footer a:hover {
+    color: #17a2b8;
+    text-decoration: none;
+  }
+  
+  footer hr {
+    border-top: 1px solid #444;
+    margin: 40px 0;
+  }
+  
+  footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  footer ul li {
+    margin-bottom: 10px;
+  }
+  
+  footer ul li a {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  footer ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  footer .text-center {
+    margin-top: 30px;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 767px) {
+    footer h5 {
+      font-size: 18px;
+    }
+  
+    footer p {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  
+    footer ul li a {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  
+    footer .text-center {
+      font-size: 12px;
+    }
+  }
+  .teacher-name {
+    font-weight: 600;
+    color: #000000;
+    background-color: #ffffff;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    padding: 2px 5px;
+    border-radius: 5px;
+  }
+  .bgg {
+    background-color: #198754;
+  }
+  
+  
+  
